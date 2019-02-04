@@ -1,2 +1,2 @@
 # WixBix
-Building Web Viewer built on ThreeJS , XBIM and IFC
+A Buildings Web Viewer built on ThreeJS , XBIM and IFC
