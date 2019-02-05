@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
-namespace WixBix.Controllers
+namespace WixBim.Controllers
 {
     public class HomeController : Controller
     {
@@ -13,16 +9,23 @@ namespace WixBix.Controllers
             return View();
         }
 
+        public ActionResult Viewer()
+        {
+            return View();
+        }
+
+
+
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "About WixBix";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Contact Me";
 
             return View();
         }

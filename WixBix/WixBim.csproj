@@ -13,8 +13,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WixBix</RootNamespace>
-    <AssemblyName>WixBix</AssemblyName>
+    <RootNamespace>WixBim</RootNamespace>
+    <AssemblyName>WixBim</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
@@ -44,6 +44,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Esent.Interop, Version=1.9.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\ManagedEsent.1.9.4\lib\net40\Esent.Interop.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -138,6 +150,50 @@
       <Private>True</Private>
       <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="Xbim.CobieExpress, Version=4.0.0.0, Culture=neutral, PublicKeyToken=11e3655e576ec5a9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xbim.Essentials.4.0.29\lib\net40\Xbim.CobieExpress.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xbim.Common, Version=4.0.0.0, Culture=neutral, PublicKeyToken=11e3655e576ec5a9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xbim.Essentials.4.0.29\lib\net40\Xbim.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xbim.Geometry.Engine.Interop, Version=4.0.0.0, Culture=neutral, PublicKeyToken=11e3655e576ec5a9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xbim.Geometry.4.0.9\lib\net40\Xbim.Geometry.Engine.Interop.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xbim.Ifc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=11e3655e576ec5a9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xbim.Essentials.4.0.29\lib\net40\Xbim.Ifc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xbim.Ifc.Extensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=11e3655e576ec5a9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xbim.Essentials.4.0.29\lib\net40\Xbim.Ifc.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xbim.Ifc2x3, Version=4.0.0.0, Culture=neutral, PublicKeyToken=11e3655e576ec5a9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xbim.Essentials.4.0.29\lib\net40\Xbim.Ifc2x3.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xbim.Ifc2x3.IO, Version=4.0.0.0, Culture=neutral, PublicKeyToken=11e3655e576ec5a9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xbim.Essentials.4.0.29\lib\net40\Xbim.Ifc2x3.IO.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xbim.Ifc4, Version=4.0.0.0, Culture=neutral, PublicKeyToken=11e3655e576ec5a9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xbim.Essentials.4.0.29\lib\net40\Xbim.Ifc4.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xbim.IO, Version=4.0.0.0, Culture=neutral, PublicKeyToken=11e3655e576ec5a9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xbim.Essentials.4.0.29\lib\net40\Xbim.IO.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xbim.ModelGeometry.Scene, Version=4.0.0.0, Culture=neutral, PublicKeyToken=11e3655e576ec5a9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xbim.Geometry.4.0.9\lib\net40\Xbim.ModelGeometry.Scene.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xbim.Tessellator, Version=4.0.0.0, Culture=neutral, PublicKeyToken=11e3655e576ec5a9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xbim.Essentials.4.0.29\lib\net40\Xbim.Tessellator.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
@@ -221,6 +277,9 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\data\SapWebmm.ifc" />
+    <Content Include="Content\data\SapWebmm.wexBIM" />
+    <Content Include="Content\data\BuldingModel.wexBIM" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -232,6 +291,38 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\XBIM\Plugins\markdown.js" />
+    <Content Include="Scripts\XBIM\Plugins\NavigationCube\cube_fshader.c" />
+    <Content Include="Scripts\XBIM\Plugins\NavigationCube\cube_texture.png" />
+    <Content Include="Scripts\XBIM\Plugins\NavigationCube\cube_texture_cs.svg" />
+    <Content Include="Scripts\XBIM\Plugins\NavigationCube\cube_texture_en.svg" />
+    <Content Include="Scripts\XBIM\Plugins\NavigationCube\cube_texture_en2.png" />
+    <Content Include="Scripts\XBIM\Plugins\NavigationCube\cube_texture_en2.svg" />
+    <Content Include="Scripts\XBIM\Plugins\NavigationCube\cube_texture_en3 – kopie.png" />
+    <Content Include="Scripts\XBIM\Plugins\NavigationCube\cube_texture_en3.svg" />
+    <Content Include="Scripts\XBIM\Plugins\NavigationCube\cube_texture_xbim.png" />
+    <Content Include="Scripts\XBIM\Plugins\NavigationCube\cube_texture_xbim.svg" />
+    <Content Include="Scripts\XBIM\Plugins\NavigationCube\cube_vshader.c" />
+    <Content Include="Scripts\XBIM\Plugins\NavigationCube\xbim-navigation-cube-shaders.debug.js" />
+    <Content Include="Scripts\XBIM\Plugins\NavigationCube\xbim-navigation-cube-textures.debug.js" />
+    <Content Include="Scripts\XBIM\Plugins\NavigationCube\xbim-navigation-cube.debug.js" />
+    <Content Include="Scripts\XBIM\Plugins\NavigationHome\home_texture.png" />
+    <Content Include="Scripts\XBIM\Plugins\NavigationHome\home_texture.svg" />
+    <Content Include="Scripts\XBIM\Plugins\NavigationHome\xbim-navigation-home-textures.debug.js" />
+    <Content Include="Scripts\XBIM\Plugins\NavigationHome\xbim-navigation-home.debug.js" />
+    <Content Include="Scripts\XBIM\Viewer\fragment_shader.c" />
+    <Content Include="Scripts\XBIM\Viewer\vertex_shader.c" />
+    <Content Include="Scripts\XBIM\Viewer\vertex_shader_noFPT.c" />
+    <Content Include="Scripts\XBIM\Viewer\xbim-binary-reader.debug.js" />
+    <Content Include="Scripts\XBIM\Viewer\xbim-model-geometry.debug.js" />
+    <Content Include="Scripts\XBIM\Viewer\xbim-model-handle.debug.js" />
+    <Content Include="Scripts\XBIM\Viewer\xbim-product-inheritance.debug.js" />
+    <Content Include="Scripts\XBIM\Viewer\xbim-product-type.debug.js" />
+    <Content Include="Scripts\XBIM\Viewer\xbim-shaders.debug.js" />
+    <Content Include="Scripts\XBIM\Viewer\xbim-state.debug.js" />
+    <Content Include="Scripts\XBIM\Viewer\xbim-triangulated-shape.debug.js" />
+    <Content Include="Scripts\XBIM\Viewer\xbim-viewer.debug.js" />
+    <Content Include="Scripts\XBIM\xbim-viewer.debug.bundle.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -267,6 +358,7 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Home\Viewer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -313,7 +405,9 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Xbim.Geometry.4.0.9\build\Xbim.Geometry.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xbim.Geometry.4.0.9\build\Xbim.Geometry.targets'))" />
   </Target>
+  <Import Project="..\packages\Xbim.Geometry.4.0.9\build\Xbim.Geometry.targets" Condition="Exists('..\packages\Xbim.Geometry.4.0.9\build\Xbim.Geometry.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

@@ -1,8 +1,9 @@
 ﻿using Microsoft.Owin;
 using Owin;
+using WixBim;
 
-[assembly: OwinStartupAttribute(typeof(WixBix.Startup))]
-namespace WixBix
+[assembly: OwinStartup(typeof(Startup))]
+namespace WixBim
 {
     public partial class Startup
     {

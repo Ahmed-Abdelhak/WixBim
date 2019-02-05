@@ -1,7 +1,6 @@
-﻿using System.Web;
-using System.Web.Optimization;
+﻿using System.Web.Optimization;
 
-namespace WixBix
+namespace WixBim
 {
     public class BundleConfig
     {
@@ -26,6 +25,24 @@ namespace WixBix
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            //bundles.Add(new StyleBundle("~/bundles/bXbim").Include(
+            // "~/Scripts/XBIM/xbim-viewer.debug.bundle.js" ,
+            //     "~/Scripts/XBIM/Plugins/NavigationCube/xbim-navigation-cube.debug.js"  ,
+            // "~/Scripts/XBIM/Plugins/NavigationCube/xbim-navigation-cube-shaders.debug.js"     ,
+            //    "~/Scripts/XBIM/Viewer/xbim-triangulated-shape.debug.js",
+            //    "~/Scripts/XBIM/Viewer/xbim-binary-reader.debug.js",
+            //    "~/Scripts/XBIM/Viewer/xbim-model-handle.debug.js",
+            //    "~/Scripts/XBIM/Viewer/xbim-shaders.debug.js",
+            //    "~/Scripts/XBIM/Viewer/xbim-model-geometry.debug.js",
+            // "~/Scripts/XBIM/Viewer/xbim-state.debug.js" ,
+            // "~/Scripts/XBIM/Viewer/xbim-product-type.debug.js" ,
+            // "~/Scripts/XBIM/Plugins/NavigationHome/xbim-navigation-home.debug.js" ,
+            // "~/Scripts/XBIM/Plugins/NavigationHome/xbim-navigation-home-textures.debug.js" ,
+            // "~/Scripts/XBIM/Plugins/NavigationCube/xbim-navigation-cube-textures.debug.js"
+
+
+            //));
         }
     }
 }

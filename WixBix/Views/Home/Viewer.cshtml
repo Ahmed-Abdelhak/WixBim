@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "Viewer";
+}
+
+<br />
+<br />
+<br />
+
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+
+
+
+    <script src="~/Scripts/XBIM/xbim-viewer.debug.bundle.js"></script>
+    <script src="~/Scripts/XBIM/Plugins/NavigationCube/xbim-navigation-cube-shaders.debug.js"></script>
+    <script src="~/Scripts/XBIM/Plugins/NavigationCube/xbim-navigation-cube.debug.js"></script>
+    <script src="~/Scripts/XBIM/Plugins/NavigationCube/xbim-navigation-cube-textures.debug.js"></script>
+    <script src="~/Scripts/XBIM/Plugins/NavigationHome/xbim-navigation-home-textures.debug.js"></script>
+    <script src="~/Scripts/XBIM/Plugins/NavigationHome/xbim-navigation-home.debug.js"></script>
+    <script src="~/Scripts/XBIM/Viewer/xbim-product-type.debug.js"></script>
+    <script src="~/Scripts/XBIM/Viewer/xbim-state.debug.js"></script>
+    <script src="~/Scripts/XBIM/Viewer/xbim-shaders.debug.js"></script>
+    <script src="~/Scripts/XBIM/Viewer/xbim-model-geometry.debug.js"></script>
+    <script src="~/Scripts/XBIM/Viewer/xbim-model-handle.debug.js"></script>
+    <script src="~/Scripts/XBIM/Viewer/xbim-binary-reader.debug.js"></script>
+    <script src="~/Scripts/XBIM/Viewer/xbim-triangulated-shape.debug.js"></script>
+
+</head>
+<body>
+
+
+    <canvas id="viewer" width="500" height="300" style="margin: auto"></canvas>
+    <script type="text/javascript">
+        var viewer = new xViewer('viewer');
+        @*viewer.load('@System.Configuration.ConfigurationManager.AppSettings["wexBIMFullPath"]');*@
+        viewer.load('../../content/data/BuldingModel.wexBIM');
+        var navCube = new xNavigationCube();
+        navCube.ratio = .1;
+        viewer.addPlugin(navCube);
+        viewer.start();
+
+    </script>
+
+</body>
+</html>

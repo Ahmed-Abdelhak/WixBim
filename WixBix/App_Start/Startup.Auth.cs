@@ -3,11 +3,10 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
-using Microsoft.Owin.Security.Google;
 using Owin;
-using WixBix.Models;
+using WixBim.Models;
 
-namespace WixBix
+namespace WixBim
 {
     public partial class Startup
     {
