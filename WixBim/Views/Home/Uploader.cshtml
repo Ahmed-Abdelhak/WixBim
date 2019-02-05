@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "Upload your IFC File";
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+<h2>IFC File Uploader</h2>
+                       
+
+@using (Html.BeginForm("Uploader", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="form-group">
+    <label for="file">Upload (IFC File)</label>
+    <span class="btn btn-info">
+    <span>Add IFC File...</span>
+    @*<label for="file">Filename:</label>*@
+    <input type="file" name="file" id="file" accept=".ifc" class="btn btn-warning" />
+
+    <input type="submit" class="btn btn-success"/>
+    <span>@ViewBag.Message</span>      
+        </span>
+    </div>
+    }

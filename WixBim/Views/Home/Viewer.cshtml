@@ -30,13 +30,13 @@
     <script src="~/Scripts/XBIM/Viewer/xbim-triangulated-shape.debug.js"></script>
 
 </head>
-<body>
+@*<body>
 
 
     <canvas id="viewer" width="500" height="300" style="margin: auto"></canvas>
     <script type="text/javascript">
         var viewer = new xViewer('viewer');
-        @*viewer.load('@System.Configuration.ConfigurationManager.AppSettings["wexBIMFullPath"]');*@
+      
         viewer.load('../../content/data/BuldingModel.wexBIM');
         var navCube = new xNavigationCube();
         navCube.ratio = .1;
@@ -45,5 +45,223 @@
 
     </script>
 
+</body>*@  
+
+<body>
+    <div id="content" style="display: inline">
+        <canvas id="viewer" width="500" height="300"></canvas>
+        <script type="text/javascript">
+            var viewer = new xViewer('viewer');
+            viewer.load('@System.Configuration.ConfigurationManager.AppSettings["wexBIMFullPath"]');
+            var navCube = new xNavigationCube();
+            navCube.ratio = .1;
+            viewer.addPlugin(navCube);
+            viewer.start();
+
+        </script>
+    </div>
+      
+<div style="float: right">
+<div>
+        <label id="productId"> </label>
+        <br />
+        @*<label id="fps"> </label>*@
+    </div>
+
+    <div>
+        @*<script>
+            viewer.on('fps', function (fps) {
+                var span = document.getElementById('fps');
+                if (span) {
+                    span.innerHTML = "Frames Per Seconf :" + fps;
+                }
+            });
+        </script>*@
+
+        @*<script>
+                viewer.on('pick', function (args) {
+                    var id = args.id;
+                    viewer.setCameraTarget(id);
+                    pickedId = id;
+                });
+            </script>*@
+
+        <div>
+            <input type="text" id="camX" value="-15000" />
+            <input type="text" id="camY" value="-15000" />
+            <input type="text" id="camZ" value="15000" />
+            <button onclick="SetCamera()">Set camera</button>
+        </div>
+
+        <script type="text/javascript">
+            function SetCamera() {
+                if (viewer) {
+                    var iX = document.getElementById('camX');
+                    var iY = document.getElementById('camY');
+                    var iZ = document.getElementById('camZ');
+                    viewer.setCameraPosition([iX.value, iY.value, iZ.value]);
+                }
+            }
+        </script>
+
+        <div>
+            <button onclick="if (viewer) viewer.show('front');">Front</button>
+            <button onclick="if (viewer) viewer.show('back');">Back</button>
+            <button onclick="if (viewer) viewer.show('top');">Top</button>
+            <button onclick="if (viewer) viewer.show('bottom');">Bottom</button>
+            <button onclick="if (viewer) viewer.show('left');">Left</button>
+            <button onclick="if (viewer) viewer.show('right');">Right</button>
+        </div>
+
+        <div>
+            <button onclick="if (viewer) viewer.navigationMode = 'orbit';">Orbit</button>
+            <button onclick="if (viewer) viewer.navigationMode = 'free-orbit';">Free orbit</button>
+            <button onclick="if (viewer) viewer.navigationMode = 'pan';">Pan</button>
+            <button onclick="if (viewer) viewer.navigationMode = 'zoom';">Zoom</button>
+
+            <button onclick="if (viewer) viewer.navigationMode = 'none';">Disable default navigation completely</button>
+        </div>
+
+          <!-- clipping-->
+        @*<div>
+            <button onclick="if (viewer) viewer.clip();">Interactive clipping</button>
+            <button onclick="if (viewer) viewer.unclip();">Unclip</button>
+            <br />
+            <input type="text" id="clipOrigX" value="0" />
+            <input type="text" id="clipOrigY" value="0" />
+            <input type="text" id="clipOrigZ" value="0" />
+            <br />
+            <input type="text" id="clipNormX" value="-1" />
+            <input type="text" id="clipNormY" value="0" />
+            <input type="text" id="clipNormZ" value="0" />
+            <br />
+            <button onclick="Clip()">Clip</button>
+            <script type="text/javascript">
+                function Clip() {
+                    var oX = document.getElementById('clipOrigX').value;
+                    var oY = document.getElementById('clipOrigY').value;
+                    var oZ = document.getElementById('clipOrigZ').value;
+
+                    var nX = document.getElementById('clipNormX').value;
+                    var nY = document.getElementById('clipNormY').value;
+                    var nZ = document.getElementById('clipNormZ').value;
+
+                    if (viewer)
+                        viewer.clip([oX, oY, oZ], [nX, nY, nZ]);
+                }
+            </script>
+        </div>*@
+        <div>
+            <select id="cmbHide">
+                <option value="noAction">No action</option>
+                <option value="hideProduct">Hide product</option>
+                <option value="hideType">Hide type</option>
+                <option value="highlight">Highlight</option>
+            </select>
+            <button onclick="if (viewer) viewer.resetStates()">Show all</button>
+            <script type="text/javascript">
+
+                var timer = 0;
+
+                viewer.on('pick', function (args) {
+                    var id = args.id;
+                    viewer.setCameraTarget(id);
+                    pickedId = id;
+                    document.getElementById('hiddenId').value = id;
+                    var span = document.getElementById('productId');
+                    if (span) {
+                        span.innerHTML = "Selected Product Id = " + id;
+                    }
+
+                    var cmb = document.getElementById('cmbHide');
+                    var option = cmb.value;
+                    switch (option) {
+                        case 'hideProduct':
+                            viewer.setState(xState.HIDDEN, [args.id]);
+                            break;
+                        case 'hideType':
+                            var type = viewer.getProductType(args.id);
+                            viewer.setState(xState.HIDDEN, type);
+                            break;
+                        case 'highlight':
+                            viewer.setState(xState.HIGHLIGHTED, [args.id]);
+                            break;
+                        default:
+                            break;
+                    }
+
+                    var time = (new Date()).getTime();
+                    if (time - timer < 200)
+                        viewer.zoomTo(id);
+                    timer = time;
+
+                });
+            </script>
+        </div>
+
+        <div>
+            Rendering mode
+            <label>
+                <input type="radio" name="rRenderingMode" checked="checked"
+                       onchange="if (viewer) viewer.renderingMode = 'normal';" />
+                Normal
+            </label>
+            <label>
+                <input type="radio" name="rRenderingMode"
+                       onchange="if (viewer) viewer.renderingMode = 'x-ray';" />
+                X-Ray
+            </label>
+        </div>
+
+        <button onclick="Recolour()">Recolour by type</button>
+        <button onclick="if (viewer) viewer.resetStyles();">Reset styles</button>
+        <script type="text/javascript">
+            function Recolour() {
+                if (!viewer) return;
+                var index = 0;
+                for (var i in xProductType) {
+                    var type = xProductType[i];
+                    var colour = [Math.random() * 255, Math.random() * 255, Math.random() * 255, 255];
+                    viewer.defineStyle(index, colour);
+                    viewer.setStyle(index, type);
+                    index++;
+                }
+            };
+        </script>
+
+
+        @*@using (Html.BeginForm("Modify", "Home", FormMethod.Post, new { id = "myForm" }))
+        {
+            <input name="hiddenId" type="hidden" id="hiddenId" />
+            <input name="newX" type="text" id="newX" />
+            <input name="newY" type="text" id="newY" />
+            <input type="submit" onclick="SubmitData(event)" value="Modify CrossSection" />
+
+        }*@
+
+        @*<script>
+            function SubmitData(e) {
+                debugger;
+                e.preventDefault();
+
+
+                var pId = document.getElementById("hiddenId").value;
+                var newX = document.getElementById("newX").value;
+                var newY = document.getElementById("newY").value;
+                debugger;
+
+                // Your Logic
+                var f = $('#myForm');
+                f.submit();
+
+
+            }
+        </script>*@
+
+
+
+    </div>
+</div>
 </body>
+
 </html>
